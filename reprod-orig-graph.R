@@ -88,6 +88,9 @@ incometbl <- incomegat %>%
   arrange(desc(incomecat), catpct)
 #View(incometbl)
 
+incometbl <- within(incometbl,                     # Assign levels for state column
+                    state <- factor(state,
+                                    levels = rev(incometbl$state[1:50])))
 
 #### Recreate the original graph ----
 
