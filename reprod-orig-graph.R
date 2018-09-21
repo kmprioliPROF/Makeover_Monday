@@ -1,6 +1,6 @@
-# Katherine M. Prioli
+# Thinh Pham & Katherine M. Prioli
 # Makeover Monday - reproduce original graph
-# Thu Sep 13 20:33:54 2018 ------------------------------
+# Thu Sep 20 22:59:12 2018 ------------------------------
 
 
 #### Libraries ----
@@ -39,7 +39,7 @@ colnames(incomedata) <- c("state",                           # GEO.display-label
 
 incomedata <- incomedata %>% 
   slice(2:n()) %>% 
-  filter(state != "Puerto Rico" & state != "District of Columbia")       # Omit DC and PR per original graph
+  filter(state != "Puerto Rico" & state != "District of Columbia")       # Omit PR and DC per original graph
 #View(incomedata)
 
 
@@ -124,6 +124,10 @@ reprod_plot
 #ggsave("reprod_plot.png", height = 15, width = 9.1, units = "in")
 
 
-#### NEXT STEPS ----
-     # Order states such that <$200K category increases from top to bottom
-     # Cosmetic improvements as needed
+#### Export wrangled data to .csv for use in making new graph ----
+
+write_csv(incometbl, "incometbl.csv")
+
+
+#### NEXT STEPS FOR REPRODUCED GRAPH ----
+    # Cosmetic improvements as needed (low priority)

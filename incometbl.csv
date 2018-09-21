@@ -1,0 +1,301 @@
+state,catpct,incomecat
+West Virginia,5.5,>$150K
+Mississippi,5.800000000000001,>$150K
+Arkansas,6,>$150K
+Kentucky,6.8,>$150K
+Idaho,7.1,>$150K
+New Mexico,7.1,>$150K
+Alabama,7.199999999999999,>$150K
+Oklahoma,7.4,>$150K
+Montana,7.5,>$150K
+South Dakota,7.6,>$150K
+Indiana,7.7,>$150K
+South Carolina,7.7,>$150K
+Tennessee,7.8,>$150K
+Maine,7.9,>$150K
+Louisiana,8.2,>$150K
+Missouri,8.2,>$150K
+Iowa,8.4,>$150K
+Ohio,8.5,>$150K
+Nevada,8.7,>$150K
+North Carolina,8.7,>$150K
+Wisconsin,8.7,>$150K
+Wyoming,8.899999999999999,>$150K
+Kansas,8.9,>$150K
+Michigan,9.100000000000001,>$150K
+Florida,9.2,>$150K
+Nebraska,9.2,>$150K
+North Dakota,9.7,>$150K
+Arizona,9.8,>$150K
+Vermont,9.8,>$150K
+Georgia,10.3,>$150K
+Oregon,10.7,>$150K
+Pennsylvania,10.9,>$150K
+Delaware,11.2,>$150K
+Utah,11.2,>$150K
+Rhode Island,11.7,>$150K
+Texas,12,>$150K
+Minnesota,13.2,>$150K
+Illinois,13.3,>$150K
+Colorado,14.3,>$150K
+Washington,14.7,>$150K
+New Hampshire,15.4,>$150K
+New York,16.2,>$150K
+Alaska,16.299999999999997,>$150K
+Virginia,16.9,>$150K
+Hawaii,17.4,>$150K
+California,18,>$150K
+Connecticut,19.299999999999997,>$150K
+Massachusetts,19.9,>$150K
+Maryland,20,>$150K
+New Jersey,21.3,>$150K
+Mississippi,9.7,$101K-$150K
+Arkansas,10.1,$101K-$150K
+West Virginia,10.4,$101K-$150K
+Tennessee,10.9,$101K-$150K
+Alabama,11,$101K-$150K
+Kentucky,11.1,$101K-$150K
+New Mexico,11.2,$101K-$150K
+Louisiana,11.3,$101K-$150K
+Florida,11.6,$101K-$150K
+North Carolina,11.6,$101K-$150K
+Montana,11.7,$101K-$150K
+Oklahoma,11.7,$101K-$150K
+South Carolina,11.7,$101K-$150K
+Idaho,12.2,$101K-$150K
+Missouri,12.3,$101K-$150K
+South Dakota,12.3,$101K-$150K
+Indiana,12.4,$101K-$150K
+Arizona,12.6,$101K-$150K
+Georgia,12.8,$101K-$150K
+Ohio,12.8,$101K-$150K
+Michigan,13,$101K-$150K
+Maine,13.3,$101K-$150K
+Nevada,13.5,$101K-$150K
+Kansas,13.6,$101K-$150K
+Iowa,13.9,$101K-$150K
+Texas,13.9,$101K-$150K
+Nebraska,14.2,$101K-$150K
+Oregon,14.2,$101K-$150K
+Pennsylvania,14.2,$101K-$150K
+Wisconsin,14.3,$101K-$150K
+Vermont,14.5,$101K-$150K
+New York,15,$101K-$150K
+Illinois,15.1,$101K-$150K
+California,15.7,$101K-$150K
+Colorado,15.8,$101K-$150K
+Delaware,15.8,$101K-$150K
+Virginia,16.2,$101K-$150K
+Wyoming,16.2,$101K-$150K
+North Dakota,16.4,$101K-$150K
+Rhode Island,16.4,$101K-$150K
+Minnesota,16.5,$101K-$150K
+Washington,16.6,$101K-$150K
+Utah,16.7,$101K-$150K
+Connecticut,17.2,$101K-$150K
+New Jersey,17.2,$101K-$150K
+New Hampshire,17.3,$101K-$150K
+Massachusetts,17.7,$101K-$150K
+Maryland,18.6,$101K-$150K
+Hawaii,18.7,$101K-$150K
+Alaska,20.1,$101K-$150K
+Arkansas,10.4,$76K-$100K
+Louisiana,10.4,$76K-$100K
+Mississippi,10.8,$76K-$100K
+West Virginia,11.1,$76K-$100K
+Alabama,11.4,$76K-$100K
+Kentucky,11.4,$76K-$100K
+New Mexico,11.5,$76K-$100K
+Florida,11.6,$76K-$100K
+Tennessee,11.7,$76K-$100K
+Oklahoma,11.8,$76K-$100K
+South Carolina,11.9,$76K-$100K
+Texas,11.9,$76K-$100K
+New York,12,$76K-$100K
+Idaho,12.1,$76K-$100K
+Michigan,12.1,$76K-$100K
+North Carolina,12.1,$76K-$100K
+California,12.2,$76K-$100K
+Georgia,12.2,$76K-$100K
+Montana,12.2,$76K-$100K
+New Jersey,12.2,$76K-$100K
+Ohio,12.3,$76K-$100K
+Rhode Island,12.3,$76K-$100K
+Arizona,12.5,$76K-$100K
+Massachusetts,12.5,$76K-$100K
+Missouri,12.5,$76K-$100K
+Pennsylvania,12.5,$76K-$100K
+Kansas,12.6,$76K-$100K
+Maine,12.7,$76K-$100K
+Connecticut,12.8,$76K-$100K
+Illinois,12.8,$76K-$100K
+Indiana,12.8,$76K-$100K
+Nevada,12.8,$76K-$100K
+Oregon,12.8,$76K-$100K
+Virginia,12.8,$76K-$100K
+Nebraska,13.2,$76K-$100K
+Maryland,13.5,$76K-$100K
+Wyoming,13.5,$76K-$100K
+North Dakota,13.6,$76K-$100K
+Washington,13.6,$76K-$100K
+Colorado,13.7,$76K-$100K
+Hawaii,13.7,$76K-$100K
+Vermont,13.7,$76K-$100K
+Wisconsin,13.8,$76K-$100K
+Delaware,13.9,$76K-$100K
+Iowa,13.9,$76K-$100K
+Minnesota,13.9,$76K-$100K
+Alaska,14.4,$76K-$100K
+South Dakota,14.4,$76K-$100K
+New Hampshire,14.5,$76K-$100K
+Utah,14.9,$76K-$100K
+Massachusetts,14.8,$51K-$75K
+New Jersey,15.2,$51K-$75K
+Connecticut,15.7,$51K-$75K
+New York,15.7,$51K-$75K
+California,16.3,$51K-$75K
+Louisiana,16.3,$51K-$75K
+Rhode Island,16.3,$51K-$75K
+Maryland,16.4,$51K-$75K
+Mississippi,17,$51K-$75K
+Virginia,17,$51K-$75K
+Illinois,17.1,$51K-$75K
+Alabama,17.4,$51K-$75K
+New Mexico,17.5,$51K-$75K
+West Virginia,17.6,$51K-$75K
+Hawaii,17.7,$51K-$75K
+Kentucky,18,$51K-$75K
+Texas,18,$51K-$75K
+Washington,18,$51K-$75K
+Arkansas,18.3,$51K-$75K
+Minnesota,18.3,$51K-$75K
+Pennsylvania,18.3,$51K-$75K
+South Carolina,18.3,$51K-$75K
+Georgia,18.4,$51K-$75K
+North Carolina,18.4,$51K-$75K
+Tennessee,18.4,$51K-$75K
+Wyoming,18.4,$51K-$75K
+Delaware,18.5,$51K-$75K
+Florida,18.5,$51K-$75K
+Michigan,18.5,$51K-$75K
+Colorado,18.6,$51K-$75K
+Montana,18.6,$51K-$75K
+Oklahoma,18.6,$51K-$75K
+Vermont,18.6,$51K-$75K
+Alaska,18.7,$51K-$75K
+Arizona,18.7,$51K-$75K
+New Hampshire,18.7,$51K-$75K
+Oregon,18.7,$51K-$75K
+Missouri,18.9,$51K-$75K
+Nebraska,18.9,$51K-$75K
+Ohio,18.9,$51K-$75K
+Kansas,19.1,$51K-$75K
+Maine,19.3,$51K-$75K
+Wisconsin,19.3,$51K-$75K
+Iowa,19.4,$51K-$75K
+Nevada,19.4,$51K-$75K
+North Dakota,19.4,$51K-$75K
+Indiana,19.8,$51K-$75K
+South Dakota,20.1,$51K-$75K
+Idaho,20.5,$51K-$75K
+Utah,21.2,$51K-$75K
+Maryland,16.8,$25K-$50K
+Hawaii,17.2,$25K-$50K
+Massachusetts,17.299999999999997,$25K-$50K
+Alaska,17.4,$25K-$50K
+New Jersey,17.4,$25K-$50K
+Connecticut,18.6,$25K-$50K
+California,19.4,$25K-$50K
+New York,19.6,$25K-$50K
+Virginia,19.8,$25K-$50K
+New Hampshire,20,$25K-$50K
+Washington,20.4,$25K-$50K
+Colorado,20.6,$25K-$50K
+Minnesota,20.9,$25K-$50K
+Illinois,21.1,$25K-$50K
+Utah,21.2,$25K-$50K
+Rhode Island,21.200000000000003,$25K-$50K
+North Dakota,21.7,$25K-$50K
+Vermont,22.3,$25K-$50K
+Pennsylvania,22.7,$25K-$50K
+Delaware,22.799999999999997,$25K-$50K
+Oregon,23.3,$25K-$50K
+Texas,23.3,$25K-$50K
+Georgia,23.5,$25K-$50K
+Wyoming,23.5,$25K-$50K
+Wisconsin,23.8,$25K-$50K
+Maine,24,$25K-$50K
+Ohio,24.1,$25K-$50K
+Louisiana,24.2,$25K-$50K
+Arizona,24.299999999999997,$25K-$50K
+Iowa,24.299999999999997,$25K-$50K
+Michigan,24.4,$25K-$50K
+New Mexico,24.5,$25K-$50K
+Nebraska,24.6,$25K-$50K
+Alabama,24.799999999999997,$25K-$50K
+Nevada,24.9,$25K-$50K
+Kansas,25.1,$25K-$50K
+Kentucky,25.1,$25K-$50K
+South Dakota,25.2,$25K-$50K
+North Carolina,25.3,$25K-$50K
+Indiana,25.4,$25K-$50K
+Mississippi,25.4,$25K-$50K
+Missouri,25.5,$25K-$50K
+Idaho,25.6,$25K-$50K
+Oklahoma,25.6,$25K-$50K
+South Carolina,25.7,$25K-$50K
+Florida,25.8,$25K-$50K
+Tennessee,26,$25K-$50K
+West Virginia,26.1,$25K-$50K
+Montana,26.9,$25K-$50K
+Arkansas,27.1,$25K-$50K
+Alaska,13,<$25K
+New Hampshire,14.1,<$25K
+Maryland,14.6,<$25K
+Utah,14.7,<$25K
+Hawaii,15.5,<$25K
+Connecticut,16.5,<$25K
+New Jersey,16.7,<$25K
+Washington,16.7,<$25K
+Colorado,17.1,<$25K
+Minnesota,17.1,<$25K
+Virginia,17.3,<$25K
+Massachusetts,17.7,<$25K
+Delaware,18,<$25K
+California,18.5,<$25K
+North Dakota,19.2,<$25K
+Wyoming,19.6,<$25K
+Nebraska,19.7,<$25K
+Wisconsin,20,<$25K
+Iowa,20.1,<$25K
+Oregon,20.200000000000003,<$25K
+Illinois,20.6,<$25K
+Nevada,20.6,<$25K
+South Dakota,20.6,<$25K
+Kansas,20.700000000000003,<$25K
+Texas,20.9,<$25K
+Pennsylvania,21.2,<$25K
+Vermont,21.2,<$25K
+New York,21.4,<$25K
+Arizona,22,<$25K
+Indiana,22.1,<$25K
+Rhode Island,22.1,<$25K
+Idaho,22.5,<$25K
+Missouri,22.6,<$25K
+Maine,22.7,<$25K
+Georgia,22.9,<$25K
+Michigan,23,<$25K
+Florida,23.1,<$25K
+Montana,23.1,<$25K
+Ohio,23.3,<$25K
+North Carolina,24.1,<$25K
+South Carolina,24.8,<$25K
+Oklahoma,24.9,<$25K
+Tennessee,25.200000000000003,<$25K
+Kentucky,27.599999999999998,<$25K
+Arkansas,28.1,<$25K
+Alabama,28.2,<$25K
+New Mexico,28.200000000000003,<$25K
+West Virginia,29.2,<$25K
+Louisiana,29.700000000000003,<$25K
+Mississippi,31.4,<$25K
