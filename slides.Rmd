@@ -3,7 +3,9 @@ title: "Makeover Monday"
 author: "Thinh Pham and Katherine M. Prioli"
 date: "October 10, 2018"
 output:
-  ioslides_presentation: default
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
   slidy_presentation: default
 ---
 
@@ -11,27 +13,43 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Original Graph
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+<div class="columns-2">
+  <img src = "household-income_original.png" height = "550">
+  
+The original graph showed household income distribution in the USA by state, broken out into five categories:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+* <$25K
+* $25K-$50K
+* $51K-$75K
+* $75K-$100K
+* $101K-$150K
+* \>$150K
 
-## Slide with Bullets
+The underlying data comes from the US Census Bureau's [Income in the Past 12 Months](https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000) data for 2016.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+## Reproduced Graph
 
-## Slide with R Output
+<div class="columns-2">
+  <img src = "reprod_plot.png" height = "550">
+
+The reproduced graph is shown here.
+
+Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.
+
+## Improved Graph
+
+Image and explanatory text go here for the new graph
+
+## Discussion
+
+Placeholder for discussion about coding choices or challenges
 
 ```{r cars, echo = TRUE}
 summary(cars)
 ```
 
-## Slide with Plot
+## Code
 
-```{r pressure}
-plot(pressure)
-```
-
+All code for this project is available on GitHub at [https://github.com/kmprioliPROF/Makeover_Monday](https://github.com/kmprioliPROF/Makeover_Monday).  Feel free to fork the repo if you're interested!
