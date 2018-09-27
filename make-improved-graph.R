@@ -2,10 +2,12 @@
 # Makeover Monday - create improved graph
 # Wed Sep 26 14:25:37 2018 ------------------------------
 
+
 #### Libraries ----
 
 library(tidyverse)
 library(fiftystater)
+library(paletteer)
 
 
 #### Read in data ----
@@ -59,7 +61,10 @@ map_cat_1 <- ggplot(data = incomecat_1, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle("<$25K Income Distribution Across the US")
+  #scale_color_paletteer_c(package = "viridis", palette = "inferno") +
+  ggtitle("<$25K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_1
 
 map_cat_2 <- ggplot(data = incomecat_2, aes(map_id = state)) +
@@ -68,7 +73,9 @@ map_cat_2 <- ggplot(data = incomecat_2, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle("$25K-$50K Income Distribution Across the US")
+  ggtitle("$25K-$50K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_2
 
 map_cat_3 <- ggplot(data = incomecat_3, aes(map_id = state)) +
@@ -77,7 +84,9 @@ map_cat_3 <- ggplot(data = incomecat_3, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle("$51K-$75K Income Distribution Across the US")
+  ggtitle("$51K-$75K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_3
 
 map_cat_4 <- ggplot(data = incomecat_4, aes(map_id = state)) +
@@ -86,7 +95,9 @@ map_cat_4 <- ggplot(data = incomecat_4, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle("$76K-$100K Income Distribution Across the US")
+  ggtitle("$76K-$100K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_4
 
 map_cat_5 <- ggplot(data = incomecat_5, aes(map_id = state)) +
@@ -95,7 +106,9 @@ map_cat_5 <- ggplot(data = incomecat_5, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle("$101K-$150K Income Distribution Across the US")
+  ggtitle("$101K-$150K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_5
 
 map_cat_6 <- ggplot(data = incomecat_6, aes(map_id = state)) +
@@ -104,5 +117,7 @@ map_cat_6 <- ggplot(data = incomecat_6, aes(map_id = state)) +
   coord_map() +
   scale_x_continuous(breaks = NULL) +
   scale_y_continuous(breaks = NULL) +
-  ggtitle(">$150K Income Distribution Across the US")
+  ggtitle(">$150K Income Distribution Across the US") +
+  xlab("") + ylab("") +
+  labs("Percentage")
 map_cat_6
