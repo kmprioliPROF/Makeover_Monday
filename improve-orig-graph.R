@@ -49,6 +49,8 @@ weight_dem = popvote_dem / 50
 
 incometbl <- full_join(incometbl, popvote, by = "state")
 
+write_csv(incometbl, "incometbl_vote.csv")                                          # Export vote-augmented dataset
+                                                                                    # in case Thinh wants it
 
 #### Separate reproduced graph by election results ----
 
