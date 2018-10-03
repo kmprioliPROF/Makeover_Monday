@@ -2,6 +2,8 @@
 title: "Makeover Monday"
 author: "Thinh Pham and Katherine M. Prioli"
 date: "October 10, 2018"
+header-includes:
+  - \usepackage{verbatim}
 output:
   ioslides_presentation:
     widescreen: true
@@ -13,43 +15,153 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Original Graph
+## Original Graph (Makeover Monday 2018, Week 3)
 
-<div class="columns-2">
+<div style="float: left; width: 38%;">
   <img src = "household-income_original.png" height = "550">
-  
-The original graph showed household income distribution in the USA by state, broken out into five categories:
+</div>
 
-* <$25K
-* $25K-$50K
-* $51K-$75K
-* $75K-$100K
-* $101K-$150K
-* \>$150K
+<div style="float: left; width: 62%;">
+
+The original graph showed household income distribution in the USA by state, broken out into six categories:
+
+  * <$25K
+  * $25K-$50K
+  * $51K-$75K
+  * $75K-$100K
+  * $101K-$150K
+  * \>$150K
+
+and organized in order of increasing percentage in the >$150K category.
 
 The underlying data comes from the US Census Bureau's [Income in the Past 12 Months](https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000) data for 2016.
 
+</div>
+
 ## Reproduced Graph
 
-<div class="columns-2">
+<div style="float: left; width: 38%;">
   <img src = "reprod_plot.png" height = "550">
+</div>
+
+<div style="float: left; width: 62%;">
 
 The reproduced graph is shown here.
 
 Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.
 
-## Improved Graph
+</div>
 
-Image and explanatory text go here for the new graph
+## Segmenting by 2016 Presidential Election Results
 
-## Discussion
+<div style="float: left; width: 38%;">
+  <img src = "reprod_plot_vote.png" height = "550">
+</div>
 
-Placeholder for discussion about coding choices or challenges
+<div style="float: left; width: 62%;">
+Since these data were from 2016, we were interested in how the 2016 presidential election popular vote results may be related to income distribution.
 
-```{r cars, echo = TRUE}
-summary(cars)
+The most noteworthy trend is that states won by Hillary Clinton had noticeably more households in the >$150K earning category, whereas those won by Donald Trump had greater numbers in the low- and middle-ranges (<\$25K and \$25-\$50K).
+
+Election results data came from the Federal Election Commission's [2016 election results](https://transition.fec.gov/general/FederalElections2016.shtml) page.
+
+Segmenting the plot was accomplished by creating separate plots by winner and using `grid.arrange()` from the `gridExtra` library to arrange them:
+
 ```
+grid.arrange(plot_gop, plot_dem, nrow = 2,
+             heights = c(2 * weight_gop, 2 * weight_dem),
+             top = textGrob("HOUSEHOLD INCOME DISTRIBUTION IN USA \n 
+                             BY STATE AND 2016 POPULAR VOTE",
+                            gp = gpar(fontsize = 16, fontface = "bold")))
+```
+</div>
+
+## Choropleths
+
+<!--- Image(s) and explanatory text for Thinh's graphs go here --->
+
+## Challenges
+
+* Dataset hosted on Makeover Monday did not match the original graph
+    * Required getting raw data from US Census website
+* Raw data required nontrivial wrangling, including use of `gather()` and `mutate()` to match categories in original graph:
+
+<div style="float: left; width: 40%;">
+```
+gather(`Less than $10,000`,
+       `$10,000 to $14,999`,
+       `$15,000 to $24,999`,
+       `$25,000 to $34,999`,
+       `$35,000 to $49,999`,
+       `$50,000 to $74,999`,
+       `$75,000 to $99,999`,
+       `$100,000 to $149,999`,
+       `$150,000 to $199,999`,
+       `$200,000 or more`,
+       key = "incomelev", value = "pct")
+```
+</div>
+
+<div style="float: left; width: 10%;">
+
+<br><br><br><br> and 
+
+</div>
+
+<div style="float: left; width: 40%;">
+
+```
+mutate(incomecat = case_when(
+    incomelev == "Less than $10,000" ~ "<$25K",
+    incomelev == "$10,000 to $14,999" ~ "<$25K",
+    incomelev == "$15,000 to $24,999" ~ "<$25K",
+    incomelev == "$25,000 to $34,999" ~ "$25K-$50K",
+    incomelev == "$35,000 to $49,999" ~ "$25K-$50K",
+    incomelev == "$50,000 to $74,999" ~ "$51K-$75K",
+    incomelev == "$75,000 to $99,999" ~ "$76K-$100K",
+    incomelev == "$100,000 to $149,999" ~ "$101K-$150K",
+    incomelev == "$150,000 to $199,999" ~ ">$150K",
+    incomelev == "$200,000 or more" ~ ">$150K"))
+```
+</div>
+
+<div style = "float: left; width: 100%">
+
+* Reproducing the original graph required ordering it by increasing percentage within `incomelev == ">$150K"`
+    - We did this by assigning factors to the states:
+
+```
+incometbl <- within(incometbl, state <- factor(state, levels = rev(incometbl$state[1:50])))
+```
+</div>
+
+## More Challenges
+
+<!--- Any challenges and code for Thinh's work go here --->
 
 ## Code
 
 All code for this project is available on GitHub at [https://github.com/kmprioliPROF/Makeover_Monday](https://github.com/kmprioliPROF/Makeover_Monday).  Feel free to fork the repo if you're interested!
+
+<br><br><br>
+
+<div style="float: left; width: 43%;">
+<center>
+<img src = "Octocat.jpg" height = "200" style = "float: right">
+</center>
+</div>
+
+<div style="float: left; width: 15%;">
+<br>
+</div>
+
+<div style="float: left; width: 42%;">
+<center>
+<img src = "MoM_QR.png" height = "200" style = "float: left">
+</center>
+</div>
+
+
+
+
+## Questions?
