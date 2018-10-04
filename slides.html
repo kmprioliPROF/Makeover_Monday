@@ -98,6 +98,10 @@
           </hgroup>
   </slide>
 
+<style>
+    p { margin-top: -30px; }
+</style>
+
 <slide class=""><hgroup><h2>Original Graph (Makeover Monday 2018, Week 3)</h2></hgroup><article  id="original-graph-makeover-monday-2018-week-3" class="smaller ">
 
 <div style="float: left; width: 38%;">
@@ -115,9 +119,9 @@
 <li>&gt;$150K</li>
 </ul>
 
-<p>and organized in order of increasing percentage in the &gt;$150K category.</p>
+<p><br> and organized in order of increasing percentage in the &gt;$150K category.</p>
 
-<p>The underlying data comes from the US Census Bureau&#39;s <a href='https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000' title=''>Income in the Past 12 Months</a> data for 2016.</p></div>
+<p><br> The underlying data comes from the US Census Bureau&#39;s <a href='https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000' title=''>Income in the Past 12 Months</a> data for 2016.</p></div>
 
 </article></slide><slide class=""><hgroup><h2>Reproduced Graph</h2></hgroup><article  id="reproduced-graph" class="smaller ">
 
@@ -127,7 +131,7 @@
 <div style="float: left; width: 62%;">
 <p>The reproduced graph is shown here.</p>
 
-<p>Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.</p></div>
+<p><br> Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.</p></div>
 
 </article></slide><slide class=""><hgroup><h2>Segmenting by 2016 Presidential Election Results</h2></hgroup><article  id="segmenting-by-2016-presidential-election-results" class="smaller ">
 
@@ -137,11 +141,13 @@
 <div style="float: left; width: 62%;">
 <p>Since these data were from 2016, we were interested in how the 2016 presidential election popular vote results may be related to income distribution.</p>
 
-<p>The most noteworthy trend is that states won by Hillary Clinton had noticeably more households in the &gt;$150K earning category, whereas those won by Donald Trump had greater numbers in the low- and middle-ranges (&lt;$25K and $25-$50K).</p>
+<p><br> The most noteworthy trend is that states won by Hillary Clinton had noticeably more households in the &gt;$150K earning category, whereas those won by Donald Trump had greater numbers in the low- and middle-ranges (&lt;$25K and $25-$50K).</p>
 
-<p>Election results data came from the Federal Election Commission&#39;s <a href='https://transition.fec.gov/general/FederalElections2016.shtml' title=''>2016 election results</a> page.</p>
+<p><br> Election results data came from the Federal Election Commission&#39;s <a href='https://transition.fec.gov/general/FederalElections2016.shtml' title=''>2016 election results</a> page.</p>
 
-<p>Segmenting the plot was accomplished by creating separate plots by winner and using <code>grid.arrange()</code> from the <code>gridExtra</code> library to arrange them:</p>
+<p><br> Segmenting the plot was accomplished by creating separate plots by winner and using <code>grid.arrange()</code> from the <code>gridExtra</code> library to arrange them:</p>
+
+<p><br></p>
 
 <pre >grid.arrange(plot_gop, plot_dem, nrow = 2,
              heights = c(2 * weight_gop, 2 * weight_dem),

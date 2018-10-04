@@ -15,6 +15,10 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+<style>
+    p { margin-top: -30px; }
+</style>
+
 ## Original Graph (Makeover Monday 2018, Week 3)
 
 <div style="float: left; width: 38%;">
@@ -32,9 +36,9 @@ The original graph showed household income distribution in the USA by state, bro
   * $101K-$150K
   * \>$150K
 
-and organized in order of increasing percentage in the >$150K category.
+<br> and organized in order of increasing percentage in the >$150K category.
 
-The underlying data comes from the US Census Bureau's [Income in the Past 12 Months](https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000) data for 2016.
+<br> The underlying data comes from the US Census Bureau's [Income in the Past 12 Months](https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000) data for 2016.
 
 </div>
 
@@ -48,7 +52,7 @@ The underlying data comes from the US Census Bureau's [Income in the Past 12 Mon
 
 The reproduced graph is shown here.
 
-Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.
+<br> Though some cosmetic differences exist between this graph and the original, both graphs are functionally the same.
 
 </div>
 
@@ -61,12 +65,13 @@ Though some cosmetic differences exist between this graph and the original, both
 <div style="float: left; width: 62%;">
 Since these data were from 2016, we were interested in how the 2016 presidential election popular vote results may be related to income distribution.
 
-The most noteworthy trend is that states won by Hillary Clinton had noticeably more households in the >$150K earning category, whereas those won by Donald Trump had greater numbers in the low- and middle-ranges (<\$25K and \$25-\$50K).
+<br> The most noteworthy trend is that states won by Hillary Clinton had noticeably more households in the >$150K earning category, whereas those won by Donald Trump had greater numbers in the low- and middle-ranges (<\$25K and \$25-\$50K).
 
-Election results data came from the Federal Election Commission's [2016 election results](https://transition.fec.gov/general/FederalElections2016.shtml) page.
+<br> Election results data came from the Federal Election Commission's [2016 election results](https://transition.fec.gov/general/FederalElections2016.shtml) page.
 
-Segmenting the plot was accomplished by creating separate plots by winner and using `grid.arrange()` from the `gridExtra` library to arrange them:
+<br> Segmenting the plot was accomplished by creating separate plots by winner and using `grid.arrange()` from the `gridExtra` library to arrange them:
 
+<br> 
 ```
 grid.arrange(plot_gop, plot_dem, nrow = 2,
              heights = c(2 * weight_gop, 2 * weight_dem),
