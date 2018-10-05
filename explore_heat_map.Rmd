@@ -113,8 +113,13 @@ states3 %>% filter(!is.na(incomecat)) %>%
 ```
 
 ```{r}
-# Create plot
-plot_category <- function(cat){
+# Plotting function with diverging color scheme
+plot_category_scheme1 <- function(cat, scheme = 1){
+  
+scheme1 <- c('#8c510a','#d8b365','#f6e8c3','#c7eae5','#5ab4ac','#01665e')
+scheme2 <- c('#b35806','#f1a340','#fee0b6','#d8daeb','#998ec3','#542788')
+color_scheme <- if(scheme == 1) {scheme1} else {scheme2}
+
 result <- states3 %>% filter(incomecat == cat) %>% 
             mutate(percentage = cut_interval(catpct, n = 6)) %>% 
             ggplot() +
@@ -122,15 +127,18 @@ result <- states3 %>% filter(incomecat == cat) %>%
                              fill = percentage, 
                              group = group,
                              color = winner))+
-            scale_fill_manual(values = 
-                                c('#8c510a','#d8b365','#f6e8c3','#c7eae5','#5ab4ac','#01665e')) +
+            scale_fill_manual(values = color_scheme) +
             scale_color_manual(values = c("black", "red")) +
             coord_fixed(1.3) +
             ggtitle(paste("Distribution of income group", cat))
 print(result)
 }     
 
-for (cat in as.character(incomecat_levels)) { plot_category(cat)}
+
+
+for (cat in as.character(incomecat_levels)) { plot_category_scheme1(cat,scheme = 1)}
 ```
 
 Notes: some nice [tutorial(http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html) on maps
+
+
