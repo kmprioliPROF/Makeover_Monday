@@ -232,7 +232,7 @@ write_csv(incometbl, "incometbl.csv")
 
 ### Merging in Election Results Data
 
-Because the original data was from 2016, we were interested in how the 2016 presidential election popular vote results may be related to income distribution.  Election results data, obtained from the [Federal Election Commission website](https://transition.fec.gov/general/FederalElections2016.shtml) [@fec], were read in using `read_xlsx()`, and the popular vote `winner` was calculated using and converted to a factor using several piped `mutate()` calls.  Factors were also assigned to `state`, consistent with the `incometbl` data, and the percentages of states won by each candidate were calculated.
+Because the original data was from 2016, we were interested in how the 2016 presidential election popular vote results may be related to income distribution.  Election results data, obtained from the [Federal Election Commission website](https://transition.fec.gov/general/FederalElections2016.shtml) [@fec], were read in using `read_xlsx()`, and the popular vote `winner` was calculated and converted to a factor using several piped `mutate()` calls.  Factors were also assigned to `state`, consistent with the `incometbl` data, and the percentages of states won by each candidate were calculated.
 
 ```{r popvote, eval = FALSE, echo = TRUE}
 
