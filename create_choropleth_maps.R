@@ -6,9 +6,7 @@ library(tidyverse)
 library(maps)
 
 #### Set up state map layer and income data ---
-usa <- map_data("usa")
 states <- map_data("state")
-
 incometbl <- read_csv("incometbl_vote.csv")
 
 ### Prepare to merge incometbl and state data
@@ -48,7 +46,7 @@ plot_category_scheme1 <- function(cat, scheme = 1) {
     result
 }
 
-## Create and save plots ----
+# Create and save plots ----
 # cat_names <- c("below_25k", "25_to_50k", "51_to_75k",
 #                "76_to_100k", "101_to_150k", "above_150k")
 # for (i in 1:6) {
@@ -56,8 +54,8 @@ plot_category_scheme1 <- function(cat, scheme = 1) {
 #     name <- cat_names[i]
 #     plot_category_scheme1(cat,scheme = 1)
 #     ggsave(filename = paste0("choropleth\\scheme1\\choropleth1_",name,".png"),
-#            height = 8, width = 8)
+#            height = 4, width = 8)
 #     plot_category_scheme1(cat,scheme = 2)
 #     ggsave(filename = paste0("choropleth\\scheme2\\choropleth2_",name,".png"),
-#            height = 8, width = 8)
+#            height = 4, width = 8)
 # }

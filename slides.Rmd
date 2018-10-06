@@ -83,7 +83,19 @@ grid.arrange(plot_gop, plot_dem, nrow = 2,
 
 ## Choropleths
 
-<!--- Image(s) and explanatory text for Thinh's graphs go here --->
+<div class="rows-2"
+  style="float: left; width: 38%;">
+  <img src = "choropleth1_above_150k.png" height = "280">
+  <img src = "choropleth1_below_25k.png" height = "280">
+</div>
+
+<div style="float: right; width: 40%;">
+* `state` data from `map` library is merged with income data to create choropleth
+* Color segments (percentage) are created from `cut_interval()` function
+* Color scheme emphasizes groups across spectrums (as advised from colorbrewer2.org)
+* States where Clinton won tend to have higher portion of high income earners and low portion of low income earners while states where Trump won have higher portion low earners and lower portion of high earners
+</div>
+
 
 ## Challenges
 
@@ -141,6 +153,20 @@ incometbl <- within(incometbl, state <- factor(state, levels = rev(incometbl$sta
 </div>
 
 ## More Challenges
+
+<div>
+* Incorporation of version control to the project
+</div>
+
+<div>
+* What aspect of the story to tell and how to show
+</div>
+
+<div>
+* Artistic/stylistic aspects of data viz
+</div>
+
+
 
 <!--- Any challenges and code for Thinh's work go here --->
 

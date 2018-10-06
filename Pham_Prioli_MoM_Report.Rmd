@@ -440,7 +440,6 @@ Overall, the message brought by the choropleths is the same as the stacked bar g
 
 <!--- Continue here --->
 
-
 ## **Full Code**
 
 Full code is available in a [public Github repository](https://github.com/kmprioliPROF/Makeover_Monday) [@kmpgit].
