@@ -28,7 +28,18 @@ references:
   author: 
   - family: Prioli
     given: Katherine M.
+  - family: Pham
+    given: Thinh T.
   URL: 'https://github.com/kmprioliPROF/Makeover_Monday'
+  issued:
+    year: 2018
+    month: 10
+    
+- id: color_Brewer
+  title: "Color Brewer 2.0 - Color Advice for Cartography"
+  author: 
+  - family: axismap
+  URL: 'http://colorbrewer2.org/#type=diverging&scheme=BrBG&n=6'
   issued:
     year: 2018
     month: 10
@@ -325,9 +336,107 @@ Figure 3. Reproduced graph segmented by 2016 popular vote results.
 The most noteworthy trend in this graph was that the states won by Hillary Clinton had a noticeably higher percentage of households in the >$150K income category, whereas those won by Donald Trump had greater percentages in the low- and middle-ranges (<\$25K and \$25-\$50K).
 
 
-### Creating Choropleths
+### Choropleths
 
-Another way to visualize this data is by choropleths.
+
+Another way to visualize this data is by choropleths. We incorporate the data from the original graph with the map of the US.
+
+### Merge Data Tables
+
+We merge data from "incometbl_vote.csv" with states data from package `maps`. `inner_join()` is used to eliminate non-matching rows. Washington D.C. is therefore not included in the map because it was not in the original data.
+
+
+```{r merge_states_income, eval = FALSE, echo = TRUE}
+states <- map_data("state")
+incometbl <- read_csv("incometbl_vote.csv")
+
+### Prepare to merge incometbl and state data
+incometbl <- incometbl %>% 
+                  mutate(region = tolower(state)) %>% 
+                  select(-state)
+
+income_data <- states %>%                                  #Inner_join() used to eliminate D.C
+                  inner_join(incometbl, by = "region")     #(not listed in the original graph)
+```
+
+### Convert Income Category into Factor Variable
+
+Originally, a choropleth graph with income category as a facet was employed, so we create a factor levels for `incomecat` variable using the code below. We ultimately choose not to follow this path, but preserve the code in case such need comes up.
+
+
+```{r setup_factor, eval = FALSE, echo = TRUE}
+# Set up factor levels for organization of graph
+incomecat_levels <- factor(c("<$25K", "$25K-$50K", "$51K-$75K",
+                             "$76K-$100K", "$101K-$150K", ">$150K"))
+income_data[,"incomecat"] <- factor(income_data[,"incomecat"], 
+                                    levels = incomecat_levels)
+```
+
+### Create Graphing Function
+
+Since a choropleth with income category as a facet clutters the entire graph and makes it hard to digest the information, we decide to create an income distribution map for each income category separately. The function belows takes in an income cateogry and a desired color theme (1 or 2) as inputs and outputs a graph showing the distribution of that income group. The range of the income distribution for each income category is divided into 6 equal intervals; each interval corresponds to the color of the fill of a state on the map. In addition, the border colors of the states represent their political leaning in the 2016 election. The color schemes are chosen from [colorbrewer2.org](colorbrewer2.org) to be both color blind and LCD friendly. 
+
+
+```{r plotfunction, eval = FALSE, echo = TRUE}
+#### Create plotting function with diverging color schemes ---
+plot_category_scheme1 <- function(cat, scheme = 1) {
+    scheme1 <- c('#8c510a','#d8b365','#f6e8c3',
+                 '#c7eae5','#5ab4ac','#01665e')
+    scheme2 <- c('#b35806','#f1a340','#fee0b6',
+                 '#d8daeb','#998ec3','#542788')
+    color_scheme <- if(scheme == 1) {scheme1} else {scheme2}
+  
+    result <- income_data %>% filter(incomecat == cat) %>% 
+    mutate(percentage = cut_interval(catpct, n = 6)) %>%  #Divide into 6 equal intervals
+       ggplot() +
+       geom_polygon(aes(x = long, y = lat,
+                     fill = percentage, 
+                     group = group,
+                     color = winner)) +                   #Border color by political party
+       scale_fill_manual(values = color_scheme) +
+       scale_color_manual(values = c("black", "red")) +
+       coord_fixed(1.3) +
+       ggtitle(paste("Distribution of income group", cat))
+    
+    result
+}
+```
+
+### Create Cholopleths
+
+Finally, we create all choropleths and save the files using the snippet of code below.
+
+```{r create_plots, eval = FALSE, echo = TRUE}
+# Create and save plots ----
+cat_names <- c("below_25k", "25_to_50k", "51_to_75k",
+               "76_to_100k", "101_to_150k", "above_150k")
+for (i in 1:6) {
+    cat <- as.character(incomecat_levels)[i]
+    name <- cat_names[i]
+    plot_category_scheme1(cat,scheme = 1)
+    ggsave(filename = paste0("choropleth\\scheme1\\choropleth1_",name,".png"),
+           height = 4, width = 8)
+    plot_category_scheme1(cat,scheme = 2)
+    ggsave(filename = paste0("choropleth\\scheme2\\choropleth2_",name,".png"),
+           height = 8, width = 8)
+}
+```
+
+
+For brevity purpose, we only show two graphs of the lowest and the highest income groups. The rest are easily generated from our code or can be accessed from the repository associated with this report.
+
+\newpage
+
+```{r choropleth, echo = FALSE}
+knitr::include_graphics("choropleth1_below_25k.png")
+knitr::include_graphics("choropleth1_above_150k.png")
+```
+
+States over the east coast and California have higher concentration of rich earners. These states were also Democratic leaning in the 2016 race, as illustrated by their black borders. The rest of the country have lower portion of top income earners, with the southern states having the lowest share. These states leaned towards the GOP in the 2016 election, as indicated by the red borders. 
+
+The reverse is true for income group earning below $25,000 a year. States with moderate to high concentration of low earners mostly are in the south and around the great lakes. States with the lowest portion of low income earners are in the northest and along the west coast.
+
+Overall, the message brought by the choropleths is the same as the stacked bar graph presented earlier: states where Clinton won tend to have higher portion of high income earners and low portion of low income earners, while states where Trump won have higher portion low earners and lower portion of high earners.
 
 <!--- Continue here --->
 

@@ -4,7 +4,6 @@
 
 library(tidyverse)
 library(maps)
-library(paletteer)
 
 #### Set up state map layer and income data ---
 usa <- map_data("usa")
@@ -49,7 +48,7 @@ plot_category_scheme1 <- function(cat, scheme = 1) {
     result
 }
 
-### Create and save plots ----
+## Create and save plots ----
 # cat_names <- c("below_25k", "25_to_50k", "51_to_75k",
 #                "76_to_100k", "101_to_150k", "above_150k")
 # for (i in 1:6) {
