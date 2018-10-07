@@ -1,48 +1,52 @@
 ---
-title: "Makeover Monday:  2016 US Household Income by State and Popular Election Results"
-author: "Thinh Pham and Katherine M. Prioli"
-date: 'October 10, 2018'
+title: 'Makeover Monday:  2016 US Household Income by State and Popular Election Results'
+author: "Thinh T. Pham and Katherine M. Prioli"
+date: "October 10, 2018"
 output:
   pdf_document: default
+  word_document: default
   html_document:
     df_print: paged
-geometry: margin = 0.5in
 references:
-- id: uscensus
-  title: Fact Finder
-  author: 
+- URL: https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000
+  author:
   - family: United States Census Bureau
-  URL: 'https://factfinder.census.gov/bkmk/table/1.0/en/ACS/16_1YR/S1901/0100000US.04000'
+  id: uscensus
   issued:
     year: 2017
-- id: fec
-  title: Election Results for the U.S. President, the U.S. Senate, and the U.S. House of Representatives
-  author: 
+  title: Fact Finder
+- URL: https://transition.fec.gov/general/FederalElections2016.shtml
+  author:
   - family: Federal Election Commission
-  URL: 'https://transition.fec.gov/general/FederalElections2016.shtml'
+  id: fec
   issued:
+    month: 2
     year: 2018
-    month: 02
-- id: kmpgit
-  title: Makeover_Monday
-  author: 
+  title: Election Results for the U.S. President, the U.S. Senate, and the U.S. House
+    of Representatives
+- URL: https://github.com/kmprioliPROF/Makeover_Monday
+  author:
   - family: Prioli
     given: Katherine M.
   - family: Pham
     given: Thinh T.
-  URL: 'https://github.com/kmprioliPROF/Makeover_Monday'
+  id: kmpgit
   issued:
-    year: 2018
     month: 10
-    
-- id: color_Brewer
-  title: "Color Brewer 2.0 - Color Advice for Cartography"
-  author: 
-  - family: axismap
-  URL: 'http://colorbrewer2.org/#type=diverging&scheme=BrBG&n=6'
+    year: 2018
+  title: Makeover_Monday
+- URL: http://colorbrewer2.org/#type=diverging&scheme=BrBG&n=6
+  author:
+  - family: Brewer
+    given: Cynthia
+  - family: Harrower
+    given: Mark
+  id: color_Brewer
   issued:
-    year: 2018
     month: 10
+    year: 2018
+  title: Color Brewer 2.0 - Color Advice for Cartography
+geometry: margin = 0.5in
 ---
 
 ```{r global_options, include = FALSE}
@@ -54,8 +58,8 @@ knitr::opts_chunk$set(fig.pos = 'h')
 
 The original graph (Fig.\ 1 below) was the 2018 Week 3 challenge on Makeover Monday.  It is a stacked horizontal bar chart depicting US household income distribution by state, broken out into six categories, and organized by order of increasing percentage in the highest income category.
 
-```{r origpng, out.height = "400px", fig.align="center", echo = FALSE}
-knitr::include_graphics("household-income_original.png")
+```{r origpng, out.height = "400px", fig.align = "center", echo = FALSE}
+knitr::include_graphics("images/household-income_original.png")
 ```
 
 \begin{center}
@@ -80,7 +84,7 @@ The data was read in, subset to columns and rows of interest, and given sensible
 
 ```{r readsubset, eval = FALSE, echo = TRUE}
 
-incomedata <- read_csv("ACS_16_1YR_S1901_with_ann.csv")
+incomedata <- read_csv("data/ACS_16_1YR_S1901_with_ann.csv")
 incomedata <- incomedata %>% select("GEO.display-label",     # Subset to only the variables of interest
                                     "HC01_EST_VC01",
                                     "HC01_EST_VC02",
@@ -215,8 +219,8 @@ reprod_plot <- ggplot(incometbl, aes(x = state, y = catpct / 100,
 reprod_plot
 ```
 
-```{r reprodpng, out.height = "500px", fig.align="center", echo = FALSE}
-knitr::include_graphics("reprod_plot.png")
+```{r reprodpng, out.height = "500px", fig.align = "center", echo = FALSE}
+knitr::include_graphics("images/reprod_plot.png")
 ```
 
 \begin{center}
@@ -227,14 +231,14 @@ This graph bears minor cosmetic differences from the original graph, but both gr
 
 ```{r saveorigplot, eval = FALSE, echo = TRUE}
 
-ggsave("reprod_plot.png", height = 15, width = 9.1, units = "in")
+ggsave("images/reprod_plot.png", height = 15, width = 9.1, units = "in")
 ```
 
 Because we were working in parallel using GitHub, the dataset was exported to .csv for use in creating the improved graphs.
 
 ```{r exportdata, eval = FALSE, echo = TRUE}
 
-write_csv(incometbl, "incometbl.csv")
+write_csv(incometbl, "data/incometbl.csv")
 ```
 
 
@@ -247,7 +251,7 @@ Because the original data was from 2016, we were interested in how the 2016 pres
 
 ```{r popvote, eval = FALSE, echo = TRUE}
 
-popvote_raw <- read_xlsx("federalelections2016.xlsx", sheet = "Appendix A", range = "A7:C59")
+popvote_raw <- read_xlsx("data/federalelections2016.xlsx", sheet = "Appendix A", range = "A7:C59")
 
 popvote <- as.tibble(popvote_raw) %>% 
   filter(!is.na(STATE) & STATE != "D.C.") %>% 
@@ -272,7 +276,7 @@ The data exported in Objective 1 above (`incometbl.csv`) was reimported and fact
 
 ```{r reimport, eval = FALSE, echo = TRUE}
 
-incometbl_raw <- read_csv("incometbl.csv")
+incometbl_raw <- read_csv("data/incometbl.csv")
 
 incometbl <- incometbl_raw %>% 
   arrange(desc(incomecat), catpct) %>% 
@@ -292,7 +296,7 @@ The two datasets were joined, and the resulting dataset was exported.
 
 incometbl <- full_join(incometbl, popvote, by = "state")
 
-write_csv(incometbl, "incometbl_vote.csv")    # Export vote-augmented dataset in case Thinh wants it
+write_csv(incometbl, "data/incometbl_vote.csv")    # Export vote-augmented dataset in case Thinh wants it
 ```
 
 
@@ -325,8 +329,8 @@ grid.arrange(plot_gop, plot_dem, nrow = 2,
 # Note - grid.arrange disables ggsave(), so I manually exported the graph using the Plots tab
 ```
 
-```{r reprodvotepng, out.height = "500px", fig.align="center", echo = FALSE}
-knitr::include_graphics("reprod_plot_vote.png")
+```{r reprodvotepng, out.height = "500px", fig.align = "center", echo = FALSE}
+knitr::include_graphics("images/reprod_plot_vote.png")
 ```
 
 \begin{center}
@@ -339,16 +343,16 @@ The most noteworthy trend in this graph was that the states won by Hillary Clint
 ### Choropleths
 
 
-Another way to visualize this data is by choropleths. We incorporate the data from the original graph with the map of the US.
+Another way to visualize this data is by choropleths. We incorporated the data from the original graph with the map of the US.
 
 ### Merge Data Tables
 
-We merge data from "incometbl_vote.csv" with states data from package `maps`. `inner_join()` is used to eliminate non-matching rows. Washington D.C. is therefore not included in the map because it was not in the original data.
+We merged data from "incometbl_vote.csv" with states data from package `maps`. `inner_join()` is used to eliminate non-matching rows. Washington D.C. is therefore not included in the map because it was not in the original data.
 
 
 ```{r merge_states_income, eval = FALSE, echo = TRUE}
 states <- map_data("state")
-incometbl <- read_csv("incometbl_vote.csv")
+incometbl <- read_csv("data/incometbl_vote.csv")
 
 ### Prepare to merge incometbl and state data
 incometbl <- incometbl %>% 
@@ -374,7 +378,7 @@ income_data[,"incomecat"] <- factor(income_data[,"incomecat"],
 
 ### Create Graphing Function
 
-Since a choropleth with income category as a facet clutters the entire graph and makes it hard to digest the information, we decide to create an income distribution map for each income category separately. The function belows takes in an income cateogry and a desired color theme (1 or 2) as inputs and outputs a graph showing the distribution of that income group. The range of the income distribution for each income category is divided into 6 equal intervals; each interval corresponds to the color of the fill of a state on the map. In addition, the border colors of the states represent their political leaning in the 2016 election. The color schemes are chosen from [colorbrewer2.org](colorbrewer2.org) to be both color blind and LCD friendly. 
+Since a choropleth with income category as a facet clutters the entire graph and makes it hard to digest the information, we decided to create an income distribution map for each income category separately. The function belows takes in an income cateogry and a desired color theme (1 or 2) as inputs and outputs a graph showing the distribution of that income group. The range of the income distribution for each income category is divided into 6 equal intervals; each interval corresponds to the color of the fill of a state on the map. In addition, the border colors of the states represent their political leaning in the 2016 election. The color schemes are chosen from [colorbrewer2.org](colorbrewer2.org) to be both colorblind and LCD friendly [@color_Brewer]. 
 
 
 ```{r plotfunction, eval = FALSE, echo = TRUE}
@@ -404,7 +408,7 @@ plot_category_scheme1 <- function(cat, scheme = 1) {
 
 ### Create Cholopleths
 
-Finally, we create all choropleths and save the files using the snippet of code below.
+Finally, we created all choropleths and saved the files using the snippet of code below.
 
 ```{r create_plots, eval = FALSE, echo = TRUE}
 # Create and save plots ----
@@ -422,15 +426,17 @@ for (i in 1:6) {
 }
 ```
 
-
 For brevity purpose, we only show two graphs of the lowest and the highest income groups. The rest are easily generated from our code or can be accessed from the repository associated with this report.
 
-\newpage
-
-```{r choropleth, echo = FALSE}
-knitr::include_graphics("choropleth1_below_25k.png")
-knitr::include_graphics("choropleth1_above_150k.png")
+```{r choropleth, echo = FALSE, out.height = "240px", fig.align = "center"}
+knitr::include_graphics("images/choropleth1_below_25k.png")
+knitr::include_graphics("images/choropleth1_above_150k.png")
 ```
+
+
+\begin{center}
+Figure 4. Choropleths for highest and lowest income categories.
+\end{center}
 
 States over the east coast and California have higher concentration of rich earners. These states were also Democratic leaning in the 2016 race, as illustrated by their black borders. The rest of the country have lower portion of top income earners, with the southern states having the lowest share. These states leaned towards the GOP in the 2016 election, as indicated by the red borders. 
 
@@ -438,7 +444,6 @@ The reverse is true for income group earning below $25,000 a year. States with m
 
 Overall, the message brought by the choropleths is the same as the stacked bar graph presented earlier: states where Clinton won tend to have higher portion of high income earners and low portion of low income earners, while states where Trump won have higher portion low earners and lower portion of high earners.
 
-<!--- Continue here --->
 
 ## **Full Code**
 

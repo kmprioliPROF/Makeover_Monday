@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Original Graph (Makeover Monday 2018, Week 3)
 
 <div style="float: left; width: 38%;">
-  <img src = "household-income_original.png" height = "550">
+  <img src = "images/household-income_original.png" height = "550">
 </div>
 
 <div style="float: left; width: 62%;">
@@ -45,7 +45,7 @@ The original graph showed household income distribution in the USA by state, bro
 ## Reproduced Graph
 
 <div style="float: left; width: 38%;">
-  <img src = "reprod_plot.png" height = "550">
+  <img src = "images/reprod_plot.png" height = "550">
 </div>
 
 <div style="float: left; width: 62%;">
@@ -59,7 +59,7 @@ The reproduced graph is shown here.
 ## Segmenting by 2016 Presidential Election Results
 
 <div style="float: left; width: 38%;">
-  <img src = "reprod_plot_vote.png" height = "550">
+  <img src = "images/reprod_plot_vote.png" height = "550">
 </div>
 
 <div style="float: left; width: 62%;">
@@ -85,8 +85,8 @@ grid.arrange(plot_gop, plot_dem, nrow = 2,
 
 <div class="rows-2"
   style="float: left; width: 38%;">
-  <img src = "choropleth1_above_150k.png" height = "280">
-  <img src = "choropleth1_below_25k.png" height = "280">
+  <img src = "images/choropleth1_above_150k.png" height = "280">
+  <img src = "images/choropleth1_below_25k.png" height = "280">
 </div>
 
 <div style="float: right; width: 40%;">
@@ -178,7 +178,7 @@ All code for this project is available on GitHub at [https://github.com/kmprioli
 
 <div style="float: left; width: 43%;">
 <center>
-<img src = "Octocat.jpg" height = "200" style = "float: right">
+<img src = "images/Octocat.jpg" height = "200" style = "float: right">
 </center>
 </div>
 
@@ -188,7 +188,7 @@ All code for this project is available on GitHub at [https://github.com/kmprioli
 
 <div style="float: left; width: 42%;">
 <center>
-<img src = "MoM_QR.png" height = "200" style = "float: left">
+<img src = "images/MoM_QR.png" height = "200" style = "float: left">
 </center>
 </div>
 
