@@ -1,6 +1,6 @@
 # Thinh Pham & Katherine M. Prioli
 # Makeover Monday - split reproduced graph by election results
-# Tue Oct 02 15:31:24 2018 ------------------------------
+# Sun Oct 07 11:05:38 2018 ------------------------------
 
 
 #### Libraries ----
@@ -13,7 +13,7 @@ library(gridExtra)
 
 #### Read in, wrangle, and join 2016 presidential election data ----
 
-incometbl_raw <- read_csv("incometbl.csv")
+incometbl_raw <- read_csv("data/incometbl.csv")
 
 incometbl <- incometbl_raw %>% 
   arrange(desc(incomecat), catpct) %>% 
@@ -26,7 +26,7 @@ incometbl <- incometbl_raw %>%
                                        ">$150K"))) %>%
   mutate(state = factor(state, levels = rev(state[1:50])))
 
-popvote_raw <- read_xlsx("federalelections2016.xlsx", sheet = "Appendix A", range = "A7:C59")
+popvote_raw <- read_xlsx("data/federalelections2016.xlsx", sheet = "Appendix A", range = "A7:C59")
 
 popvote <- as.tibble(popvote_raw) %>% 
   filter(!is.na(STATE) & STATE != "D.C.") %>% 
@@ -49,7 +49,7 @@ weight_dem = popvote_dem / 50
 
 incometbl <- full_join(incometbl, popvote, by = "state")
 
-write_csv(incometbl, "incometbl_vote.csv")                                          # Export vote-augmented dataset
+write_csv(incometbl, "data/incometbl_vote.csv")                                     # Export vote-augmented dataset
                                                                                     # in case Thinh wants it
 
 #### Separate reproduced graph by election results ----
