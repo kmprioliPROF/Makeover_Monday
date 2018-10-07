@@ -1,6 +1,6 @@
 # Thinh Pham & Katherine M. Prioli
 # Makeover Monday - reproduce original graph
-# Thu Sep 20 22:59:12 2018 ------------------------------
+# Sun Oct 07 11:07:50 2018 ------------------------------
 
 
 #### Libraries ----
@@ -10,7 +10,7 @@ library(tidyverse)
 
 #### Read in and subset data ----
 
-incomedata <- read_csv("ACS_16_1YR_S1901_with_ann.csv")
+incomedata <- read_csv("data/ACS_16_1YR_S1901_with_ann.csv")
 incomedata <- incomedata %>% select("GEO.display-label",     # Subset to only the variables of interest
                                     "HC01_EST_VC01",
                                     "HC01_EST_VC02",
@@ -126,8 +126,4 @@ reprod_plot
 
 #### Export wrangled data to .csv for use in making new graph ----
 
-write_csv(incometbl, "incometbl.csv")
-
-
-#### NEXT STEPS FOR REPRODUCED GRAPH ----
-    # Cosmetic improvements as needed (low priority)
+write_csv(incometbl, "data/incometbl.csv")
