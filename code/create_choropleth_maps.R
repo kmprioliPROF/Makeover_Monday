@@ -7,7 +7,7 @@ library(maps)
 
 #### Set up state map layer and income data ---
 states <- map_data("state")
-incometbl <- read_csv("incometbl_vote.csv")
+incometbl <- read_csv("data/incometbl_vote.csv")
 
 ### Prepare to merge incometbl and state data
 incometbl <- incometbl %>% 

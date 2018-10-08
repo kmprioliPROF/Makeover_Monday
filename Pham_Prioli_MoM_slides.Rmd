@@ -85,8 +85,8 @@ grid.arrange(plot_gop, plot_dem, nrow = 2,
 
 <div class="rows-2"
   style="float: left; width: 38%;">
-  <img src = "images/choropleth1_above_150k.png" height = "280">
-  <img src = "images/choropleth1_below_25k.png" height = "280">
+  <img src = "choropleth/scheme1/choropleth1_above_150k.png" height = "280">
+  <img src = "choropleth/scheme1/choropleth1_below_25k.png" height = "280">
 </div>
 
 <div style="float: right; width: 40%;">
