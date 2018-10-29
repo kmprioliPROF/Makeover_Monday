@@ -406,6 +406,8 @@ plot_category_scheme1 <- function(cat, scheme = 1) {
 }
 ```
 
+\newpage
+
 ### Create Cholopleths
 
 Finally, we created all choropleths and saved the files using the snippet of code below.
@@ -428,9 +430,11 @@ for (i in 1:6) {
 
 For brevity purpose, we only show two graphs of the lowest and the highest income groups. The rest are easily generated from our code or can be accessed from the repository associated with this report.
 
+\newpage
+
 ```{r choropleth, echo = FALSE, out.height = "240px", fig.align = "center"}
-knitr::include_graphics("images/choropleth1_below_25k.png")
-knitr::include_graphics("images/choropleth1_above_150k.png")
+knitr::include_graphics("choropleth/scheme1/choropleth1_below_25k.png")
+knitr::include_graphics("choropleth/scheme1/choropleth1_above_150k.png")
 ```
 
 

@@ -28,7 +28,7 @@ The repo is organized as follows:
 The three code files should be run in the following order:
 
 1. `reprod-orig-graph.R`:  this reproduces the original graph and outputs the `incometbl.csv` dataset used in the second step
-2. `improve-orig-graph.R`:  this brings in 2016 election data and outputs the `incometbl_vote.csv` dataset used in the third step
+2. `improve-orig-graph.R`:  this brings in 2016 presidential election popular vote data, modifies the reproduced graph to segment by popular vote results, and outputs the `incometbl_vote.csv` dataset used in the third step
 3. `create_choropleth_maps.R`:  this generates the choropleths
 
 ## **Original Graph**
